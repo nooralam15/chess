@@ -1,0 +1,18 @@
+#container {
+    width: 660px; 
+}
+
+#container div {
+    width: 80px;
+    height: 80px;
+    border: 1px solid black;
+    float: left;
+}
+
+.lightBrown {
+    background-color: #f4a460;
+}
+
+.darkBrown {
+    background-color: #624226;
+}
