@@ -3,36 +3,68 @@
 
 function createGridArray() {
     //create and return a grid array
-    return [[0, 1, 0, 1, 0, 1, 0, 1],
-            [1, 0, 1, 0, 1, 0, 1, 0],
-            [0, 1, 0, 1, 0, 1, 0, 1],
-            [1, 0, 1, 0, 1, 0, 1, 0],
-            [0, 1, 0, 1, 0, 1, 0, 1],
-            [1, 0, 1, 0, 1, 0, 1, 0],
-            [0, 1, 0, 1, 0, 1, 0, 1],
-            [1, 0, 1, 0, 1, 0, 1, 0]]
+    return [[2, 3, 4, 5, 6, 4, 3, 2],
+            [1, 1, 1, 1, 1, 1, 1, 1],
+            [0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0],
+            [1, 1, 1, 1, 1, 1, 1, 1],
+            [2, 3, 4, 5, 6, 4, 3, 2]]
 }
 
+
 function displayGridArray(grid) {
-    for (let row = 0; row < num_row; row ++) {
-        for (let col = 0; col < num_col; col ++) {
-            //create a div for each element in 2d grid
-            let divEl = document.createElement("div")
-
-            //add the appropriate class lsit to the board
-            if (grid[row][col] == 0) {
-                divEl.classList.add("lightBrown")
+    for (let row = 0; row < num_row; row++) {
+        if (row % 2 == 0) {
+            for (let col = 0; col < num_col; col++) {
+                if (col % 2 == 0) {
+                    cellDesign(0,0)
+                }
+                else {
+                    cellDesign(0,1)
+                }
             }
-
-            if (grid[row][col] == 1) {
-                divEl.classList.add("darkBrown")
-            }
-            
-
-            // add div to container
-            document.getElementById("container").append(divEl)
         }
+        else {
+            for (let col = 0; col < num_col; col++) {
+                if (col % 2 == 0) {
+                    cellDesign(1,0)
+
+                }
+                else {
+                    cellDesign(1,1)
+                }
+            }
+        }
+        
     }
+}
+
+
+function cellDesign (rowVal, colVal) {
+    let divEl = document.createElement("div")
+    if (rowVal == 0 && colVal == 0) {
+        divEl.classList.add("lightBrown")
+        document.getElementById("container").append(divEl)
+    }
+    else if (rowVal == 0 && colVal == 1) {
+        divEl.classList.add("darkBrown")
+        document.getElementById("container").append(divEl)
+    }
+    else if (rowVal == 1 && colVal == 0) {
+        divEl.classList.add("darkBrown")
+        document.getElementById("container").append(divEl)
+    }
+    else {
+        divEl.classList.add("lightBrown")
+        document.getElementById("container").append(divEl)
+    }
+}
+
+
+function pieceDisplay() {
+
 }
 
 
