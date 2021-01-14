@@ -57,6 +57,7 @@ function cellDesign (rowVal, colVal) {
     }
     else if (rowVal == 0 && colVal == 1) {
         divEl.classList.add("darkBrown")
+        
         document.getElementById("container").append(divEl) 
     }
     else if (rowVal == 1 && colVal == 0) {
