@@ -9,4 +9,11 @@ let num_col = 8
 
 
 //call function that will make the chess baord viisble on the screen
-displayGridArray(chessBoard)
+//divBoard will store an array of all the div elements present.
+let divBoard = createDivArray(chessBoard)
+
+//will display the pieces onto the board
+updateBoard()
+
+
+console.log(divBoard)
