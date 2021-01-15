@@ -1,11 +1,11 @@
 #container {
-    width: 660px; 
+    width: 660px;
 }
 
-#container div {
+.board {
     width: 80px;
     height: 80px;
-    border: 1px solid black;
+    border: 1px solid black; 
     float: left;
 }
 
@@ -24,6 +24,14 @@ img {
 }
 
 .selectedPiece {
-    border: 2px solid red;
-    
+    border: 3px solid red;
+    width: 76px;
+    height: 76px
+}
+
+.highlightedMoves {
+    border: 3px solid yellow;
+    width: 76px;
+    height: 76px
+
 }
