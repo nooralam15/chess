@@ -6,14 +6,14 @@
 let chessBoard = createGridArray()
 let num_row = 8
 let num_col = 8
-
+let whitesTurn = true
 
 //call function that will make the chess baord viisble on the screen
 //divBoard will store an array of all the div elements present.
 let divBoard = createDivArray(chessBoard)
 
 //will display the pieces onto the board
-updateBoard()
+displayPieces()
 
 
 console.log(divBoard)

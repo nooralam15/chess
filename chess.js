@@ -55,6 +55,9 @@ function cellMechanics (rowVal, colVal, rowDes, colDes) {
     //add en eventListener to each divEl
     divEl.addEventListener("click", cellClicked)
 
+    //adds an id to each div element that will store the divs coordinates
+    divEl.id = rowVal + "-" + colVal
+
     //add dataset values for rows and columns
     divEl.dataset.row = rowVal
     divEl.dataset.col = colVal
@@ -78,55 +81,128 @@ function displayPattern (rowDes, colDes, divEl) {
 }
 
 function cellClicked(event) {
-    event.target.classList.add("selectedPiece")
+    let TargetEl
+    let emptySquare
+    if (event.target.nodeName == 'IMG' ) {
+        TargetEl = (event.target.parentNode)
+        event.target.classList.toggle("selectedPiece")
+        pieceSelector(TargetEl)
+    }
+    else emptySquare = event.target
     console.log(event.target)
 }
 
 //this function goes through the chessBoard array and will update the board to display the correct piece image
-function updateBoard() {
+function displayPieces() {
     for (let row = 0; row < num_row; row++) {
         for(let col = 0; col < num_col; col++) {
             if (chessBoard[row][col] == "w1") {
                 divBoard[row][col].innerHTML = `<img src = images/whitePawn.png>`
+                divBoard[row][col].dataset.piece = "Pawn"
             }
             if (chessBoard[row][col] == "w2") {
                 divBoard[row][col].innerHTML = `<img src = images/whiteRook.png>`
+                divBoard[row][col].dataset.piece = "Rook"
             }
             if (chessBoard[row][col] == "w3") {
                 divBoard[row][col].innerHTML = `<img src = images/whiteBishop.png>`
+                divBoard[row][col].dataset.piece = "Bishop"
             }
             if (chessBoard[row][col] == "w4") {
                 divBoard[row][col].innerHTML = `<img src = images/whiteKnight.png>`
+                divBoard[row][col].dataset.piece = "Knight"
             }
             if (chessBoard[row][col] == "w5") {
                 divBoard[row][col].innerHTML = `<img src = images/whiteQueen.png>`
+                divBoard[row][col].dataset.piece = "Queen"
             }
             if (chessBoard[row][col] == "w6") {
                 divBoard[row][col].innerHTML = `<img src = images/whiteKing.png>`
+                divBoard[row][col].dataset.piece = "King"
             }
             if (chessBoard[row][col] == "b1") {
                 divBoard[row][col].innerHTML = `<img src = images/blackPawn.png>`
+                divBoard[row][col].dataset.piece = "Pawn"
             }
             if (chessBoard[row][col] == "b2") {
                 divBoard[row][col].innerHTML = `<img src = images/blackRook.png>`
+                divBoard[row][col].dataset.piece = "Rook"
             }
             if (chessBoard[row][col] == "b3") {
                 divBoard[row][col].innerHTML = `<img src = images/blackBishop.png>`
+                divBoard[row][col].dataset.piece = "Bishop"
             }
             if (chessBoard[row][col] == "b4") {
                 divBoard[row][col].innerHTML = `<img src = images/blackKnight.png>`
+                divBoard[row][col].dataset.piece = "Knight"
             }
             if (chessBoard[row][col] == "b5") {
                 divBoard[row][col].innerHTML = `<img src = images/blackQueen.png>`
+                divBoard[row][col].dataset.piece = "Queen"
             }
             if (chessBoard[row][col] == "b6") {
                 divBoard[row][col].innerHTML = `<img src = images/blackKing.png>`
+                divBoard[row][col].dataset.piece = "King"
             }
         }
     }
     
 }
 
+//thid function will see which piece is clicked and will then decide how the piece will move
+function pieceSelector(pieceInfo) {
+    //creates variables that will store the dataset values for row & col
+    let row = Number(pieceInfo.dataset.row)
+    let col = Number(pieceInfo.dataset.col)
+    if (pieceInfo.dataset.piece == "Pawn") {
+        movePawn(pieceInfo, row, col)
+    }
+    if (pieceInfo.dataset.piece == "Rook") {
+        moveRook(pieceInfo, row, col)
+    }
+    if (pieceInfo.dataset.piece == "Bishop") {
+        moveBishop(pieceInfo, row, col)
+    }
+    if (pieceInfo.dataset.piece == "Knight") {
+        moveKnight(pieceInfo, row, col)
+    }
+    if (pieceInfo.dataset.piece == "Queen") {
+        moveQueen(pieceInfo, row, col)
+    }
+    if (pieceInfo.dataset.piece == "King") {
+        moveKing(pieceInfo, row, col)
+    }
+
+}
+
+//function will control the movements for the pawn
+function movePawn(pieceData, row, col) {
+    row --
+    document.getElementById(`${row}-${col}`).classList.toggle("highlightedMoves")
+    
+    
+
+}
+
+function moveRook(pieceData, row, col) {
+    
+}
+
+function moveBishop(pieceData, row, col) {
+    
+}
+
+function moveKnight(pieceData, row, col) {
+    
+}
+
+function moveQueen(pieceData, row, col) {
+    
+}
+
+function moveKing(pieceData, row, col) {
+    
+}
 
 
 
