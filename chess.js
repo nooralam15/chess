@@ -81,16 +81,26 @@ function displayPattern (rowDes, colDes, divEl) {
 }
 
 function cellClicked(event) {
-    let TargetEl
-    let emptySquare
+    
     if (event.target.nodeName == 'IMG' ) {
-        TargetEl = (event.target.parentNode)
-        event.target.classList.toggle("selectedPiece")
-        pieceSelector(TargetEl)
+        if(!selectedCell) {
+            selectedCell = (event.target.parentNode)
+            selectedCell.classList.add("selectedPiece")
+            pieceSelector(selectedCell)
+        }
+        else {
+            selectedCell.classList.remove("selectedPiece")
+            selectedCell = (event.target)
+            selectedCell.classList.add("selectedPiece")
+        }
     }
-    else emptySquare = event.target
+  
+
+    
+    console.log(selectedCell)
     console.log(event.target)
 }
+
 
 //this function goes through the chessBoard array and will update the board to display the correct piece image
 function displayPieces() {
@@ -203,9 +213,6 @@ function moveQueen(pieceData, row, col) {
 function moveKing(pieceData, row, col) {
     
 }
-
-
-
 
 
 console.log(createGridArray)

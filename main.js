@@ -7,6 +7,7 @@ let chessBoard = createGridArray()
 let num_row = 8
 let num_col = 8
 let whitesTurn = true
+let selectedCell = null
 
 //call function that will make the chess baord viisble on the screen
 //divBoard will store an array of all the div elements present.
